@@ -102,21 +102,21 @@ The current implementation focuses on a practical local + AWS workflow with clea
 ### Mermaid Diagram
 ```mermaid
 flowchart LR
-  A[STEP/STP CAD Files\nbackend/assets/cad_inputs] --> B[FreeCAD Renderer\n7 views PNG]
-  B --> C[Local Snapshots\nbackend/assets/snapshots_out]
-  C --> D[S3\nreference_snapshots/*]
-  D --> E[Index Script\nindex_s3_snapshots.ts]
-  E --> F[CLIP Embeddings\nXenova Transformers]
-  F --> G[Pinecone Index]
-  E --> H[DynamoDB Metadata]
+  A["STEP/STP CAD Files<br/>backend/assets/cad_inputs"] --> B["FreeCAD Renderer<br/>7 views PNG"]
+  B --> C["Local Snapshots<br/>backend/assets/snapshots_out"]
+  C --> D["S3<br/>reference_snapshots/*"]
+  D --> E["Index Script<br/>index_s3_snapshots.ts"]
+  E --> F["CLIP Embeddings<br/>Xenova Transformers"]
+  F --> G["Pinecone Index"]
+  E --> H["DynamoDB Metadata"]
 
-  U[Frontend Upload] --> I[/search API]
-  I --> FQ[Query Embedding]
+  U["Frontend Upload"] --> I["Search API (/search)"]
+  I --> FQ["Query Embedding"]
   FQ --> G
   G --> I
   I --> H
   I --> D
-  I --> R[Model Candidates + Signed URLs]
+  I --> R["Model Candidates + Signed URLs"]
   R --> U
 ```
 
