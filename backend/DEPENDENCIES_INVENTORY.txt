@@ -1,0 +1,48 @@
+# Full dependency inventory (cross-stack)
+# Source of truth:
+# - backend/package.json
+# - frontend/package.json
+# - backend/requirements.txt
+
+# Backend Node runtime dependencies
+@aws-sdk/client-dynamodb@^3.606.0
+@aws-sdk/client-s3@^3.606.0
+@aws-sdk/lib-dynamodb@^3.606.0
+@aws-sdk/s3-request-presigner@^3.606.0
+@pinecone-database/pinecone@^2.2.2
+@xenova/transformers@^2.15.0
+busboy@^1.6.0
+canvas@^2.11.2
+
+# Backend Node dev dependencies
+@types/aws-lambda@^8.10.140
+@types/busboy@^1.5.3
+@types/node@^20.11.30
+ts-node@^10.9.2
+serverless@^3.38.0
+serverless-offline@^13.5.0
+serverless-plugin-typescript@^2.1.5
+typescript@^5.4.5
+
+# Frontend Node runtime dependencies
+next@14.2.35
+react@18.3.1
+react-dom@18.3.1
+
+# Frontend Node dev dependencies
+@types/node@^20.11.30
+@types/react@^18.3.1
+@types/react-dom@^18.3.1
+typescript@^5.4.5
+
+# Python packages (backend/requirements.txt)
+pip>=23.0
+setuptools>=65.0
+wheel>=0.38
+
+# External runtime tools/services (not pip/npm packages)
+freecad_gui_executable
+aws_credentials_configured
+aws_s3
+aws_dynamodb
+pinecone_service

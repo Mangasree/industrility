@@ -1,0 +1,8 @@
+# Python packaging essentials for local backend helper workflows
+pip>=23.0
+setuptools>=65.0
+wheel>=0.38
+
+# Note:
+# CAD snapshot generation for STEP/STP in this repository uses FreeCAD
+# as an external desktop tool (not installed via pip).

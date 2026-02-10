@@ -1,0 +1,37 @@
+{
+  "name": "part-search-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "offline": "serverless offline --httpPort 3001 --lambdaPort 3002",
+    "offline:local": "serverless offline --httpPort 3001 --lambdaPort 3002",
+    "deploy": "serverless deploy",
+    "remove": "serverless remove",
+    "setup:deps": "node scripts/setup_deps.js",
+    "gen:placeholders": "ts-node scripts/gen_placeholders.ts",
+    "preindex": "ts-node scripts/preindex.ts",
+    "ingest:s3-snapshots": "ts-node src/scripts/s3_snapshots_ingest.ts",
+    "index:s3-snapshots": "ts-node src/scripts/index_s3_snapshots.ts"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.140",
+    "@types/busboy": "^1.5.3",
+    "@types/node": "^20.11.30",
+    "ts-node": "^10.9.2",
+    "serverless": "^3.38.0",
+    "serverless-offline": "^13.5.0",
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.606.0",
+    "@aws-sdk/client-s3": "^3.606.0",
+    "@aws-sdk/lib-dynamodb": "^3.606.0",
+    "@aws-sdk/s3-request-presigner": "^3.606.0",
+    "@pinecone-database/pinecone": "^2.2.2",
+    "@xenova/transformers": "^2.15.0",
+    "busboy": "^1.6.0",
+    "canvas": "^2.11.2"
+  }
+}

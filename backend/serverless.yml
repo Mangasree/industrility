@@ -1,0 +1,78 @@
+﻿service: part-search-backend
+
+frameworkVersion: '3'
+useDotenv: true
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+custom:
+  resourceNames:
+    s3Bucket: ${env:S3_BUCKET_NAME, "${self:service}-${sls:stage}-reference-images"}
+    dynamoTable: ${env:DYNAMODB_TABLE_NAME, "${self:service}-${sls:stage}-metadata"}
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'ap-south-1'}
+  httpApi:
+    payload: '2.0'
+    cors: true
+  environment:
+    S3_BUCKET_NAME: ${self:custom.resourceNames.s3Bucket}
+    DYNAMODB_TABLE_NAME: ${self:custom.resourceNames.dynamoTable}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:PutObject
+            - s3:GetObject
+          Resource:
+            - arn:aws:s3:::${self:custom.resourceNames.s3Bucket}
+            - arn:aws:s3:::${self:custom.resourceNames.s3Bucket}/*
+        - Effect: Allow
+          Action:
+            - dynamodb:PutItem
+            - dynamodb:GetItem
+            - dynamodb:BatchWriteItem
+          Resource:
+            - arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.resourceNames.dynamoTable}
+
+functions:
+  health:
+    handler: src/handlers/health.handler
+    timeout: 10
+    memorySize: 256
+    events:
+      - httpApi:
+          method: GET
+          path: /health
+  search:
+    handler: src/handlers/search.handler
+    timeout: 30
+    memorySize: 1024
+    events:
+      - httpApi:
+          method: POST
+          path: /search
+
+resources:
+  Resources:
+    ReferenceImagesBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.resourceNames.s3Bucket}
+    ReferenceMetadataTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.resourceNames.dynamoTable}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH

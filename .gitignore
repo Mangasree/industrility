@@ -1,0 +1,34 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files / secrets
+.env
+.env.*
+!.env.example
+frontend/KEYS.txt
+
+# Backend
+backend/dist/
+backend/.serverless/
+backend/.npm-cache/
+backend/assets/snapshots_out/*
+!backend/assets/snapshots_out/.gitkeep
+
+# Frontend
+frontend/.next/
+frontend/out/

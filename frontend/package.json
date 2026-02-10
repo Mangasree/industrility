@@ -1,0 +1,23 @@
+﻿{
+  "name": "part-search-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "setup:deps": "node scripts/setup_deps.js",
+    "dev": "node scripts/dev_with_hint.js",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.4.5"
+  }
+}

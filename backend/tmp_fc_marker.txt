@@ -1,0 +1,1 @@
+argv=C:\Program Files\FreeCAD 1.0\bin\FreeCADCmd.exe|D:\Industrility\Part Search Prototype\backend\tmp_fc_test.py|a|b|c
