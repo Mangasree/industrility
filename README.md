@@ -317,8 +317,19 @@ curl.exe -X POST "http://localhost:3001/search" -F "file=@./backend/assets/snaps
 - Backend logs: terminal output from `npm run offline` (single-line timestamp format)
 
 ## Snapshots / Images
-No runtime screenshots are committed currently.
-If needed, add submission screenshots under `assets/` or `frontend/public/` and reference them with relative paths in this section.
+### UI Screenshots
+#### Home Page
+![Home Page](assets/images/home_page.png)
+
+#### Upload Preview
+![Upload Preview](assets/images/image_preview.png)
+
+#### Search Results
+![Search Results](assets/images/results.png)
+
+### Demo Videos
+- [Video 1](assets/videos/video_1.mp4)
+- [Video 2](assets/videos/video_2.mp4)
 
 ## Results
 ### Example observed indexing summary
@@ -360,8 +371,10 @@ YYYY-MM-DD HH:mm:ss IST | LEVEL | requestId=<id> | <message>
 - Add authentication and request-level observability dashboards.
 - Add incremental indexing and dedup checks.
 
-## License / Credits
-- No explicit project license file is currently present in this repository. Add `LICENSE` for distribution clarity.
+## Credits
 - CAD model assets appear to be externally sourced; ensure compliance with original authors’ terms before production use.
 - If using GrabCAD or similar repositories, include direct attribution links and usage permissions in this section.
 - Embedding model runtime is based on `@xenova/transformers` and related upstream model licenses.
+
+---
+For focused snapshot pipeline details, see: `backend/README_S3_SNAPSHOTS.md`
