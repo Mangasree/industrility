@@ -326,14 +326,7 @@ curl.exe -X POST "http://localhost:3001/search" -F "file=@./backend/assets/snaps
 
 #### Search Results
 ![Search Results](assets/images/results.png)
-<<<<<<< HEAD
-
-### Demo Videos
-- [Video 1](assets/videos/video_1.mp4)
-- [Video 2](assets/videos/video_2.mp4)
-=======
 ---
->>>>>>> 1f277f8 (Rename media files to snake_case and update README links)
 
 ## Results
 ### Example observed indexing summary
@@ -374,14 +367,3 @@ YYYY-MM-DD HH:mm:ss IST | LEVEL | requestId=<id> | <message>
 - Add Docker-based local stack for reproducibility.
 - Add authentication and request-level observability dashboards.
 - Add incremental indexing and dedup checks.
-<<<<<<< HEAD
-
-## Credits
-- CAD model assets appear to be externally sourced; ensure compliance with original authors’ terms before production use.
-- If using GrabCAD or similar repositories, include direct attribution links and usage permissions in this section.
-- Embedding model runtime is based on `@xenova/transformers` and related upstream model licenses.
-
----
-For focused snapshot pipeline details, see: `backend/README_S3_SNAPSHOTS.md`
-=======
->>>>>>> 1f277f8 (Rename media files to snake_case and update README links)
