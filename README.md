@@ -365,6 +365,3 @@ YYYY-MM-DD HH:mm:ss IST | LEVEL | requestId=<id> | <message>
 - CAD model assets appear to be externally sourced; ensure compliance with original authors’ terms before production use.
 - If using GrabCAD or similar repositories, include direct attribution links and usage permissions in this section.
 - Embedding model runtime is based on `@xenova/transformers` and related upstream model licenses.
-
----
-For focused snapshot pipeline details, see: `backend/README_S3_SNAPSHOTS.md`
