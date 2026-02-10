@@ -32,3 +32,5 @@ backend/assets/snapshots_out/*
 # Frontend
 frontend/.next/
 frontend/out/
+
+frontend/.npm-cache/_logs/
